@@ -4,6 +4,8 @@
 
 ::selection { background: #f8955c20 }
 
+/* Removed display contents on root to fix Safari white screen bug */
+
 html {
 	/* so its descendants know its width 
 	 * minus vertical scrollbar, 
@@ -20,6 +22,15 @@ section { display: grid }
 body {
   --fgc: #dcdcdc;
   --hlc: #f8955c;
+  background: #28292b;
+  color: var(--fgc);
+	/* font-size scales with viewport 
+	 * within reasonable limits */
+  font: clamp(.875em, 3vw, 1.375em)/ 3 
+    cormorant, serif;
+}
+
+#root {
   display: grid;
 	/* create the three columns of the grid */
   grid-template-columns: 
@@ -28,12 +39,6 @@ body {
 	/* needed for viewport sticky skip links */
   align-items: start;
   position: relative;
-  background: #28292b;
-  color: var(--fgc);
-	/* font-size scales with viewport 
-	 * within reasonable limits */
-  font: clamp(.875em, 3vw, 1.375em)/ 3 
-    cormorant, serif;
   min-height: 100vh;
 }
 
@@ -43,7 +48,7 @@ body::before {
   width: 100cqw /* full-bleed */;
   height: 50vh;
   background: 
-    var(--bg-image, url(https://images.unsplash.com/photo-1537255263864-b779ce1854ff))
+    var(--bg-image, url(./images/bg-1.jpg))
     50% / cover;
   /* so it goes from opaque at the top to 
    * transparent at the bottom */

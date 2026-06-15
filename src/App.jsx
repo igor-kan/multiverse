@@ -10,9 +10,9 @@ function App() {
   // Handle setting background image
   useEffect(() => {
     if (currentView === 'dashboard') {
-      document.body.style.setProperty('--bg-image', 'url(https://images.unsplash.com/photo-1519681393784-d120267933ba)');
+      document.body.style.setProperty('--bg-image', 'url(./images/bg-dashboard.jpg)');
     } else if (selectedText) {
-      document.body.style.setProperty('--bg-image', selectedText.bgImage || 'url(https://images.unsplash.com/photo-1537255263864-b779ce1854ff)');
+      document.body.style.setProperty('--bg-image', selectedText.bgImage || 'url(./images/bg-1.jpg)');
     }
   }, [currentView, selectedText]);
 
@@ -73,7 +73,7 @@ function App() {
           <article>
             <h1>{selectedText.title}</h1>
             <h2>{selectedText.subtitle || `By ${selectedText.author}`}</h2>
-            <div dangerouslySetInnerHTML={{ __html: selectedText.content }} />
+            <div style={{ display: 'contents' }} dangerouslySetInnerHTML={{ __html: selectedText.content }} />
           </article>
         )}
 
